@@ -14,9 +14,7 @@
 - Se ha creado la web estática en la carpeta `docs/` para GitHub Pages.
 - Diseño premium implementado con CSS vanilla (glassmorphism).
 - README.md actualizado con un diseño más profesional (badges, tablas, alertas).
-- README.md actualizado con un diseño profesional y funcional.
-- Rediseño profesional de badges en `README.md` (estilo `for-the-badge` y centrados).
-- Optimización completa "Mobile-first" de la web: implementación de menú hamburguesa y navegación adaptativa.
-- Refactorización de CSS para mejorar la experiencia en dispositivos táctiles.
-- Configuración final de branding: `haplee.setup` en cabecera y `vbox.setup` en pie de página.
-- Estado actual: Proyecto 100% finalizado, con documentación y README de alto impacto visual.
+- Refinados los iconos de Hardware (💻) y Bases de Datos (🗄️) en el perfil de autor.
+- Refinado el icono de Windows en el perfil de autor por uno más profesional (🖥️).
+- Ampliación del perfil de autor con nuevos tags: Hardware, Bases de Datos y Windows.
+- Estado actual: Rediseño finalizado con toda la información y funcionalidad restaurada.
