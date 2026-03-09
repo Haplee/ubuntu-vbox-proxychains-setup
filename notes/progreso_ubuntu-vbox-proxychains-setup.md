@@ -14,4 +14,8 @@
 - Se ha creado la web estática en la carpeta `docs/` para GitHub Pages.
 - Diseño premium implementado con CSS vanilla (glassmorphism).
 - README.md actualizado con un diseño más profesional (badges, tablas, alertas).
-- Estado actual: Proyecto finalizado, documentado y listo para despliegue.
+- README.md actualizado con un diseño profesional y funcional.
+- Implementación de un diseño web personalizado de alta calidad propuesto por el usuario.
+- Integración total de perfiles sociales (Instagram, X, GitHub) y foto de perfil real.
+- Personalización de branding final: `haplee.setup` en navegación y `FranVi` en el footer.
+- Estado actual: Proyecto 100% finalizado, documentado y con identidad visual propia.

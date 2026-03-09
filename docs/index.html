@@ -1,96 +1,430 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubuntu VBox Proxychains | Enterprise Deployment</title>
-    <meta name="description" content="Automatización avanzada de VirtualBox y ProxyChains para Administradores de Sistemas.">
-    
-    <!-- Styles & Fonts -->
-    <link rel="stylesheet" href="style.css">
+    <title>VBox · Proxychains Setup</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Fira+Code&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="bg-mesh"></div>
 
+<body>
+
+    <div class="bg-mesh"></div>
+    <div class="scanlines"></div>
+
+    <!-- NAV -->
     <nav>
-        <div class="nav-brand">HAPLEE <span style="font-weight: 400; color: #94a3b8;">/ SETUP</span></div>
+        <span class="nav-brand">haplee<span class="accent-dot">.</span>setup</span>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#instalacion">Instalación</a></li>
+            <li><a href="#modulos">Módulos</a></li>
+            <li><a href="#estructura">Estructura</a></li>
+            <li><a href="#autor">Autor</a></li>
+        </ul>
+        <a href="#instalacion" class="btn btn-primary nav-cta">Empezar →</a>
     </nav>
 
-    <header class="hero">
-        <p class="profile-tag">Administración de Sistemas Informáticos en Red</p>
-        <h1>Automatiza tu Entorno Virtual</h1>
-        <p>Despliegue unificado de VirtualBox y ProxyChains en entornos Linux con soporte para Secure Boot y hardening de red de grado profesional.</p>
-        
-        <div class="hero-btns">
-            <a href="https://github.com/Haplee/ubuntu-vbox-proxychains-setup" class="btn btn-primary">
-                <i class="fab fa-github"></i> Ver Código
-            </a>
-            <a href="#instalacion" class="btn btn-outline">Comenzar</a>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Ubuntu · VirtualBox · Proxychains
         </div>
-    </header>
+        <h1>
+            Automatiza tu entorno<br>
+            <span class="gradient-text">de virtualización</span><br>
+            con un solo comando.
+        </h1>
+        <p>Script modular para instalar y configurar VirtualBox + Proxychains en Ubuntu. Detección automática del
+            sistema, soporte Secure Boot y configuración de proxy lista para usar.</p>
+        <div class="hero-btns">
+            <a href="#instalacion" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 17 10 11 4 5" />
+                    <line x1="12" y1="19" x2="20" y2="19" />
+                </svg>
+                Instalación rápida
+            </a>
+            <a href="#modulos" class="btn btn-outline">Ver módulos</a>
+        </div>
 
-    <main class="container">
-        <section id="features">
-            <h2 class="section-title">Ingeniería del Script</h2>
+        <div class="hero-terminal">
+            <div class="terminal-header">
+                <div class="t-dots">
+                    <span class="t-dot red"></span>
+                    <span class="t-dot yellow"></span>
+                    <span class="t-dot green"></span>
+                </div>
+                <span class="t-title">bash — install.sh</span>
+            </div>
+            <div class="terminal-body">
+                <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">git clone</span> <span
+                        class="t-arg">https://github.com/Haplee/ubuntu-vbox-proxychains-setup.git</span></div>
+                <div class="t-line t-delay-1"><span class="t-prompt">$</span> <span class="t-cmd">cd</span> <span
+                        class="t-arg">ubuntu-vbox-proxychains-setup</span></div>
+                <div class="t-line t-delay-2"><span class="t-prompt">$</span> <span class="t-cmd">chmod +x</span> <span
+                        class="t-arg">install.sh</span></div>
+                <div class="t-line t-delay-3"><span class="t-prompt">$</span> <span class="t-cmd">sudo</span> <span
+                        class="t-arg">./install.sh</span></div>
+                <div class="t-line t-delay-4"><span class="t-success">✓ Sistema detectado: Ubuntu 22.04 LTS
+                        (x86_64)</span></div>
+                <div class="t-line t-delay-5"><span class="t-success">✓ Instalando dependencias...</span></div>
+                <div class="t-line t-delay-6"><span class="t-cursor">▌</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTALACIÓN -->
+    <section id="instalacion">
+        <div class="container">
+            <h2 class="section-title">Instalación</h2>
+            <p class="section-sub">Tres formas de ejecutar el setup según tus necesidades.</p>
+
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Kernel Hardening</h3>
-                    <p>Firma automática de módulos para compatibilidad nativa con Unified Extensible Firmware Interface (UEFI) y Secure Boot.</p>
+                <div class="feature-card card-glow-blue">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instalación completa</h3>
+                    <p>Ejecuta todos los módulos en orden: preflight, detección, dependencias, VirtualBox, kernel
+                        modules, Secure Boot, extension pack y proxychains.</p>
+                    <div class="code-window">
+                        <div class="code-dots">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <div class="code-line"><span class="code-keyword">sudo</span> ./install.sh</div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3>Network Stealth</h3>
-                    <p>Integración preconfigurada de ProxyChains4 y Tor para el enrutamiento seguro de máquinas virtuales y servicios.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-cubes"></i></div>
-                    <h3>Arquitectura Modular</h3>
-                    <p>Lógica distribuida en módulos independientes para garantizar la estabilidad, idempotencia y fácil mantenimiento.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-terminal"></i></div>
-                    <h3>Shell Integration</h3>
-                    <p>Configuración automática de aliases y variables de entorno para Bash, Zsh y el shell Fish.</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="instalacion">
-            <h2 class="section-title">Despliegue Inmediato</h2>
-            <p style="text-align: center;">Ejecuta el asistente de orquestación directamente desde tu terminal:</p>
-            <div class="code-window">
-                <div style="color: #6ee7b7;"># Descargar y ejecutar automáticamente</div>
-                <code>curl -fsSL https://raw.githubusercontent.com/Haplee/ubuntu-vbox-proxychains-setup/main/install.sh | sudo bash</code>
-            </div>
-        </section>
-
-        <section id="autor">
-            <div class="profile-card">
-                <div class="profile-img">
-                    <img src="https://github.com/Haplee.png" alt="Fran Vidal Mateo">
+                <div class="feature-card card-glow-pink">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Módulo individual</h3>
+                    <p>Ejecuta solo el módulo que necesitas. Útil para reinstalaciones parciales o para depurar una
+                        etapa específica del proceso.</p>
+                    <div class="code-window">
+                        <div class="code-dots">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <div class="code-line"><span class="code-keyword">bash</span> modules/<span
+                                class="code-fn">03_virtualbox.sh</span></div>
+                    </div>
                 </div>
-                <div class="profile-info">
-                    <p class="profile-tag">El Desarrollador</p>
-                    <h3>Fran Vidal Mateo</h3>
-                    <p>Técnico Superior en ASIR. Apasionado por la automatización de flujos de trabajo en servidores Linux y la seguridad informática.</p>
-                    <div class="hero-btns" style="justify-content: flex-start; margin-top: 1.5rem;">
-                        <a href="https://github.com/Haplee" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-github"></i></a>
-                        <a href="https://instagram.com/franvidalmateo" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/FranVidalMateo" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-x-twitter"></i></a>
+
+                <div class="feature-card card-glow-teal">
+                    <div class="feature-icon">🧹</div>
+                    <h3>Desinstalación</h3>
+                    <p>Elimina todos los componentes instalados: VirtualBox, extension pack, proxychains y las
+                        configuraciones asociadas del sistema.</p>
+                    <div class="code-window">
+                        <div class="code-dots">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <div class="code-line"><span class="code-keyword">sudo</span> ./uninstall.sh</div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
+            <!-- Requisitos -->
+            <div class="info-block">
+                <div class="info-block-header">
+                    <span class="info-icon">📋</span>
+                    <h3>Requisitos previos</h3>
+                </div>
+                <div class="req-grid">
+                    <div class="req-item">
+                        <span class="req-check">✓</span>
+                        <div>
+                            <strong>Ubuntu 20.04+</strong>
+                            <p>Compatible con 20.04 LTS, 22.04 LTS y 24.04 LTS en arquitectura x86_64.</p>
+                        </div>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-check">✓</span>
+                        <div>
+                            <strong>Permisos sudo</strong>
+                            <p>Se requieren privilegios de administrador para la instalación de paquetes y módulos del
+                                kernel.</p>
+                        </div>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-check">✓</span>
+                        <div>
+                            <strong>Conexión a internet</strong>
+                            <p>Necesaria para descargar VirtualBox, el Extension Pack y las dependencias apt.</p>
+                        </div>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-check">✓</span>
+                        <div>
+                            <strong>4 GB RAM mínimo</strong>
+                            <p>Recomendado 8 GB para ejecutar máquinas virtuales de forma cómoda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULOS -->
+    <section id="modulos" class="section-alt">
+        <div class="container">
+            <h2 class="section-title">Módulos del sistema</h2>
+            <p class="section-sub">11 módulos ejecutados secuencialmente. Cada uno es independiente y puede relanzarse
+                por separado.</p>
+
+            <div class="modules-list">
+                <div class="module-item">
+                    <div class="module-num">00</div>
+                    <div class="module-info">
+                        <h4>preflight.sh</h4>
+                        <p>Comprobaciones previas: verifica que el sistema cumple los requisitos mínimos antes de
+                            iniciar la instalación.</p>
+                    </div>
+                    <span class="module-tag">preflight</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">01</div>
+                    <div class="module-info">
+                        <h4>detect_system.sh</h4>
+                        <p>Detecta la distribución, versión del kernel, arquitectura y si el sistema arranca con
+                            UEFI/Secure Boot.</p>
+                    </div>
+                    <span class="module-tag">detección</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">02</div>
+                    <div class="module-info">
+                        <h4>install_deps.sh</h4>
+                        <p>Instala todas las dependencias necesarias vía apt: build-essential, dkms, linux-headers y
+                            otras librerías.</p>
+                    </div>
+                    <span class="module-tag">dependencias</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">03</div>
+                    <div class="module-info">
+                        <h4>virtualbox.sh</h4>
+                        <p>Agrega el repositorio oficial de Oracle, importa la clave GPG e instala la versión estable de
+                            VirtualBox.</p>
+                    </div>
+                    <span class="module-tag tag-primary">core</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">04</div>
+                    <div class="module-info">
+                        <h4>kernel_modules.sh</h4>
+                        <p>Compila e instala los módulos del kernel vboxdrv, vboxnetflt y vboxnetadp usando DKMS.</p>
+                    </div>
+                    <span class="module-tag tag-primary">core</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">05</div>
+                    <div class="module-info">
+                        <h4>secure_boot.sh</h4>
+                        <p>Genera y enrolla un MOK (Machine Owner Key) para firmar los módulos del kernel cuando Secure
+                            Boot está activo.</p>
+                    </div>
+                    <span class="module-tag tag-warn">seguridad</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">06</div>
+                    <div class="module-info">
+                        <h4>extension_pack.sh</h4>
+                        <p>Descarga e instala el VirtualBox Extension Pack compatible con la versión instalada (USB 3.0,
+                            RDP, cifrado).</p>
+                    </div>
+                    <span class="module-tag">extras</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">07</div>
+                    <div class="module-info">
+                        <h4>proxychains.sh</h4>
+                        <p>Instala proxychains-ng y configura el archivo base para enrutar conexiones a través del proxy
+                            definido.</p>
+                    </div>
+                    <span class="module-tag tag-accent">proxy</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">08</div>
+                    <div class="module-info">
+                        <h4>proxy_config.sh</h4>
+                        <p>Aplica la configuración de proxy del archivo config/defaults.conf al sistema y a proxychains.
+                        </p>
+                    </div>
+                    <span class="module-tag tag-accent">proxy</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">09</div>
+                    <div class="module-info">
+                        <h4>aliases.sh</h4>
+                        <p>Agrega aliases útiles al .bashrc o .zshrc: atajos para vboxmanage, proxychains y comandos
+                            frecuentes.</p>
+                    </div>
+                    <span class="module-tag">shell</span>
+                </div>
+                <div class="module-item">
+                    <div class="module-num">10</div>
+                    <div class="module-info">
+                        <h4>verify.sh</h4>
+                        <p>Verifica que la instalación se completó correctamente: comprueba servicios, módulos cargados
+                            y conectividad.</p>
+                    </div>
+                    <span class="module-tag tag-success">verificación</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTRUCTURA DE ARCHIVOS -->
+    <section id="estructura">
+        <div class="container">
+            <h2 class="section-title">Estructura del proyecto</h2>
+            <p class="section-sub">Organización modular pensada para facilitar el mantenimiento y la extensión del
+                proyecto.</p>
+
+            <div class="two-col">
+                <div class="file-tree-card">
+                    <div class="code-window filetree-window">
+                        <div class="code-dots">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <div class="tree-line"><span class="tree-icon">📁</span> <span class="tree-dir">config/</span>
+                        </div>
+                        <div class="tree-line tree-child"><span class="tree-icon">⚙️</span> <span
+                                class="tree-file">defaults.conf</span></div>
+                        <div class="tree-line"><span class="tree-icon">📁</span> <span class="tree-dir">docs/</span>
+                        </div>
+                        <div class="tree-line tree-child"><span class="tree-icon">🌐</span> <span
+                                class="tree-file tree-active">index.html</span></div>
+                        <div class="tree-line tree-child"><span class="tree-icon">🎨</span> <span
+                                class="tree-file tree-active">style.css</span></div>
+                        <div class="tree-line"><span class="tree-icon">📁</span> <span class="tree-dir">modules/</span>
+                        </div>
+                        <div class="tree-line tree-child"><span class="tree-icon">📄</span> <span
+                                class="tree-file">00_preflight.sh</span></div>
+                        <div class="tree-line tree-child"><span class="tree-icon">📄</span> <span
+                                class="tree-file">01_detect_system.sh</span></div>
+                        <div class="tree-line tree-child"><span class="tree-icon">📄</span> <span
+                                class="tree-file">...</span></div>
+                        <div class="tree-line tree-child"><span class="tree-icon">📄</span> <span
+                                class="tree-file">10_verify.sh</span></div>
+                        <div class="tree-line"><span class="tree-icon">📁</span> <span class="tree-dir">notes/</span>
+                        </div>
+                        <div class="tree-line tree-child"><span class="tree-icon">📝</span> <span
+                                class="tree-file">progreso_ubuntu-vbox.md</span></div>
+                        <div class="tree-line"><span class="tree-icon">📁</span> <span class="tree-dir">tests/</span>
+                        </div>
+                        <div class="tree-line tree-child"><span class="tree-icon">📄</span> <span
+                                class="tree-file">test_all.sh</span></div>
+                        <div class="tree-line"><span class="tree-icon">📝</span> <span
+                                class="tree-file">README.md</span></div>
+                        <div class="tree-line"><span class="tree-icon">📄</span> <span
+                                class="tree-file">install.sh</span></div>
+                        <div class="tree-line"><span class="tree-icon">📄</span> <span
+                                class="tree-file">uninstall.sh</span></div>
+                    </div>
+                </div>
+
+                <div class="dir-cards">
+                    <div class="dir-card">
+                        <div class="dir-icon">⚙️</div>
+                        <div>
+                            <h4>config/</h4>
+                            <p>Parámetros globales: IP del proxy, puerto, tipo (socks5/http) y opciones de instalación
+                                activables.</p>
+                        </div>
+                    </div>
+                    <div class="dir-card">
+                        <div class="dir-icon">🧩</div>
+                        <div>
+                            <h4>modules/</h4>
+                            <p>Cada archivo es una etapa de instalación independiente. Se ejecutan en orden numérico
+                                desde install.sh.</p>
+                        </div>
+                    </div>
+                    <div class="dir-card">
+                        <div class="dir-icon">🧪</div>
+                        <div>
+                            <h4>tests/</h4>
+                            <p>Suite de pruebas automatizadas. Verifica que todos los componentes funcionan
+                                correctamente tras la instalación.</p>
+                        </div>
+                    </div>
+                    <div class="dir-card">
+                        <div class="dir-icon">📝</div>
+                        <div>
+                            <h4>notes/</h4>
+                            <p>Registro de progreso, decisiones de diseño y notas técnicas del desarrollo del proyecto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTOR -->
+    <section id="autor" class="section-alt">
+        <div class="container">
+            <h2 class="section-title">Autor</h2>
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="https://github.com/Haplee.png" alt="Fran Vidal Mateo"
+                        style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+                </div>
+                <div class="profile-info">
+                    <h3>Fran Vidal Mateo</h3>
+                    <p class="profile-tag">
+                        <span class="tag-badge">🛡️ ASIR</span>
+                        <span class="tag-badge">🐧 Linux</span>
+                        <span class="tag-badge">🔐 Seguridad</span>
+                    </p>
+                    <p>Técnico Superior en ASIR. Especialista en automatización Linux, redes y seguridad. Desarrollador
+                        del ecosistema Haplee Setup. Este proyecto automatiza el despliegue de entornos de
+                        virtualización seguros.</p>
+                    <div class="profile-links">
+
+                        <a href="https://www.instagram.com/franvidalmateo" target="_blank"
+                            class="btn btn-outline btn-sm">Instagram →</a>
+                        <!-- X -->
+                        <a href="https://x.com/FranVidalMateo" target="_blank" class="btn btn-outline btn-sm">X →</a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/Haplee" target="_blank" class="btn btn-outline btn-sm">GitHub →</a>
+                        <!-- README -->
+                        <a href="../README.md" class="btn btn-outline btn-sm">README →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Ubuntu VBox Proxychains Setup. Licencia MIT.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Ready for deployment on Ubuntu 24.04 LTS.</p>
+        <div class="container">
+            <div class="footer-brand">FranVi</div>
+            <p>Proyecto open source · Licencia MIT</p>
+            <p class="footer-links">
+                <a href="#inicio">Inicio</a> ·
+                <a href="#instalacion">Instalación</a> ·
+                <a href="#modulos">Módulos</a> ·
+                <a href="https://github.com/Haplee/ubuntu-vbox-proxychains-setup" target="_blank">GitHub</a>
+            </p>
+        </div>
     </footer>
+
 </body>
+
 </html>
