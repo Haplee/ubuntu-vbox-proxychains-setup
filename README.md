@@ -1,8 +1,12 @@
 # 🛡️ Ubuntu VirtualBox & ProxyChains Setup
 
-[![GitHub License](https://img.shields.io/github/license/Haplee/ubuntu-vbox-proxychains-setup?style=flat-square&color=00d2ff)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/Haplee/ubuntu-vbox-proxychains-setup?style=flat-square)](https://github.com/Haplee/ubuntu-vbox-proxychains-setup/stargazers)
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-3a7bd5?style=flat-square)](https://haplee.github.io/ubuntu-vbox-proxychains-setup/)
+<div align="center">
+
+[![License](https://img.shields.io/github/license/Haplee/ubuntu-vbox-proxychains-setup?style=for-the-badge&logo=opensourceinitiative&logoColor=white&color=00d2ff)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Haplee/ubuntu-vbox-proxychains-setup?style=for-the-badge&logo=github&color=3a7bd5)](https://github.com/Haplee/ubuntu-vbox-proxychains-setup/stargazers)
+[![Documentation](https://img.shields.io/badge/docs-vbox.setup-00d2ff?style=for-the-badge&logo=docsdotrs&logoColor=white&color=3a7bd5)](https://haplee.github.io/ubuntu-vbox-proxychains-setup/)
+
+</div>
 
 Script de automatización total para el despliegue y configuración de **VirtualBox** y **ProxyChains** en sistemas Ubuntu. Diseñado con un enfoque profesional para administradores de sistemas (ASIR).
 

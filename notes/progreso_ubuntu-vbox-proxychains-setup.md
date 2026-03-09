@@ -15,7 +15,8 @@
 - Diseño premium implementado con CSS vanilla (glassmorphism).
 - README.md actualizado con un diseño más profesional (badges, tablas, alertas).
 - README.md actualizado con un diseño profesional y funcional.
+- Rediseño profesional de badges en `README.md` (estilo `for-the-badge` y centrados).
 - Optimización completa "Mobile-first" de la web: implementación de menú hamburguesa y navegación adaptativa.
 - Refactorización de CSS para mejorar la experiencia en dispositivos táctiles.
 - Configuración final de branding: `haplee.setup` en cabecera y `vbox.setup` en pie de página.
-- Estado actual: Proyecto 100% finalizado, optimizado para móviles y listo para producción.
+- Estado actual: Proyecto 100% finalizado, con documentación y README de alto impacto visual.
