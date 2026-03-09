@@ -13,5 +13,5 @@
 - Se ha realizado la limpieza de archivos residuales (logs y temporales).
 - Se ha creado la web estática en la carpeta `docs/` para GitHub Pages.
 - Diseño premium implementado con CSS vanilla (glassmorphism).
-- README.md actualizado con el enlace a la documentación.
+- README.md actualizado con un diseño más profesional (badges, tablas, alertas).
 - Estado actual: Proyecto finalizado, documentado y listo para despliegue.

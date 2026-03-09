@@ -3,81 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubuntu VBox Proxychains Setup | Documentación</title>
-    <meta name="description" content="Automatización del despliegue de VirtualBox y ProxyChains en sistemas Ubuntu.">
+    <title>Ubuntu VBox Proxychains | Enterprise Deployment</title>
+    <meta name="description" content="Automatización avanzada de VirtualBox y ProxyChains para Administradores de Sistemas.">
+    
+    <!-- Styles & Fonts -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Ubuntu VBox Proxychains</h1>
-            <p class="subtitle">Automatización de despliegue para administradores de sistemas (ASIR)</p>
-        </header>
+    <div class="bg-mesh"></div>
 
-        <section class="card">
-            <h2>🚀 El Proyecto</h2>
-            <p>Este repositorio proporciona un flujo de trabajo automatizado para instalar y configurar <strong>VirtualBox</strong> junto con <strong>ProxyChains</strong> en entornos Ubuntu/Debian.</p>
-            <p>Ideal para despliegues rápidos donde la seguridad y el anonimato del tráfico de red son prioridades técnicas.</p>
-            
-            <div class="code-block">
-                <code>curl -sSL https://raw.githubusercontent.com/Haplee/ubuntu-vbox-proxychains-setup/main/install.sh | bash</code>
+    <nav>
+        <div class="nav-brand">HAPLEE <span style="font-weight: 400; color: #94a3b8;">/ SETUP</span></div>
+    </nav>
+
+    <header class="hero">
+        <p class="profile-tag">Administración de Sistemas Informáticos en Red</p>
+        <h1>Automatiza tu Entorno Virtual</h1>
+        <p>Despliegue unificado de VirtualBox y ProxyChains en entornos Linux con soporte para Secure Boot y hardening de red de grado profesional.</p>
+        
+        <div class="hero-btns">
+            <a href="https://github.com/Haplee/ubuntu-vbox-proxychains-setup" class="btn btn-primary">
+                <i class="fab fa-github"></i> Ver Código
+            </a>
+            <a href="#instalacion" class="btn btn-outline">Comenzar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="features">
+            <h2 class="section-title">Ingeniería del Script</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Kernel Hardening</h3>
+                    <p>Firma automática de módulos para compatibilidad nativa con Unified Extensible Firmware Interface (UEFI) y Secure Boot.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Network Stealth</h3>
+                    <p>Integración preconfigurada de ProxyChains4 y Tor para el enrutamiento seguro de máquinas virtuales y servicios.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>Arquitectura Modular</h3>
+                    <p>Lógica distribuida en módulos independientes para garantizar la estabilidad, idempotencia y fácil mantenimiento.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-terminal"></i></div>
+                    <h3>Shell Integration</h3>
+                    <p>Configuración automática de aliases y variables de entorno para Bash, Zsh y el shell Fish.</p>
+                </div>
             </div>
         </section>
 
-        <section class="card">
-            <h2>🛠️ Características Core</h2>
-            <div class="features">
-                <div class="feature-item">
-                    <h3>Modularidad</h3>
-                    <p>Scripts divididos por funciones: comprobaciones pre-vuelo, gestión de dependencias y configuración de kernel.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Hardening de Red</h3>
-                    <p>Integración nativa con ProxyChains4 para tunnelring dinámico de aplicaciones.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Robustez</h3>
-                    <p>Manejo avanzado de errores, logs detallados y estados idempotentes en cada ejecución.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Fácil Limpieza</h3>
-                    <p>Script de desinstalación completo que revierte todos los cambios realizados en el sistema.</p>
-                </div>
+        <section id="instalacion">
+            <h2 class="section-title">Despliegue Inmediato</h2>
+            <p style="text-align: center;">Ejecuta el asistente de orquestación directamente desde tu terminal:</p>
+            <div class="code-window">
+                <div style="color: #6ee7b7;"># Descargar y ejecutar automáticamente</div>
+                <code>curl -fsSL https://raw.githubusercontent.com/Haplee/ubuntu-vbox-proxychains-setup/main/install.sh | sudo bash</code>
             </div>
         </section>
 
-        <section class="card">
-            <h2>📂 Arquitectura</h2>
-            <p>La solución se organiza en una estructura limpia y fácil de mantener:</p>
-            <ul>
-                <li><code>modules/</code> - Lógica de instalación separada por capas.</li>
-                <li><code>config/</code> - Plantillas para ProxyChains y alias de shell.</li>
-                <li><code>tests/</code> - Suite de verificación de entorno.</li>
-                <li><code>docs/</code> - Esta documentación estática.</li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2>📖 Uso Rápido</h2>
-            <p>Clona el repositorio y lanza el instalador principal:</p>
-            <div class="code-block">
-                <code>git clone https://github.com/Haplee/ubuntu-vbox-proxychains-setup.git<br>
-cd ubuntu-vbox-proxychains-setup<br>
-chmod +x install.sh<br>
-./install.sh</code>
+        <section id="autor">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="https://github.com/Haplee.png" alt="Fran Vidal Mateo">
+                </div>
+                <div class="profile-info">
+                    <p class="profile-tag">El Desarrollador</p>
+                    <h3>Fran Vidal Mateo</h3>
+                    <p>Técnico Superior en ASIR. Apasionado por la automatización de flujos de trabajo en servidores Linux y la seguridad informática.</p>
+                    <div class="hero-btns" style="justify-content: flex-start; margin-top: 1.5rem;">
+                        <a href="https://github.com/Haplee" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/franvidalmateo" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/FranVidalMateo" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
+    </main>
 
-        <footer>
-            <p>Desarrollado por <a href="https://github.com/Haplee">Fran Vidal (Haplee)</a></p>
-            <p>
-                <a href="https://instagram.com/franvidalmateo">Instagram</a> | 
-                <a href="https://x.com/FranVidalMateo">X (Twitter)</a>
-            </p>
-        </footer>
-    </div>
+    <footer>
+        <p>© 2026 Ubuntu VBox Proxychains Setup. Licencia MIT.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Ready for deployment on Ubuntu 24.04 LTS.</p>
+    </footer>
 </body>
 </html>
