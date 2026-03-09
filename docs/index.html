@@ -20,7 +20,7 @@
 
     <!-- NAV -->
     <nav>
-        <span class="nav-brand">haplee<span class="accent-dot">.</span>setup</span>
+        <span class="nav-brand">FranVi</span>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#instalacion">Instalación</a></li>
@@ -29,7 +29,20 @@
             <li><a href="#autor">Autor</a></li>
         </ul>
         <a href="#instalacion" class="btn btn-primary nav-cta">Empezar →</a>
+        <!-- Hamburguesa solo visible en móvil -->
+        <div class="nav-hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
+
+    <!-- Drawer móvil -->
+    <div class="nav-drawer" id="navDrawer">
+        <a href="#inicio" onclick="closeDrawer()">Inicio</a>
+        <a href="#instalacion" onclick="closeDrawer()">Instalación</a>
+        <a href="#modulos" onclick="closeDrawer()">Módulos</a>
+        <a href="#estructura" onclick="closeDrawer()">Estructura</a>
+        <a href="#autor" onclick="closeDrawer()">Autor</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero" id="inicio">
@@ -66,9 +79,9 @@
             </div>
             <div class="terminal-body">
                 <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">git clone</span> <span
-                        class="t-arg">https://github.com/Haplee/ubuntu-vbox-proxychains-setup.git</span></div>
+                        class="t-arg">https://github.com/user/vbox-setup.git</span></div>
                 <div class="t-line t-delay-1"><span class="t-prompt">$</span> <span class="t-cmd">cd</span> <span
-                        class="t-arg">ubuntu-vbox-proxychains-setup</span></div>
+                        class="t-arg">vbox-setup</span></div>
                 <div class="t-line t-delay-2"><span class="t-prompt">$</span> <span class="t-cmd">chmod +x</span> <span
                         class="t-arg">install.sh</span></div>
                 <div class="t-line t-delay-3"><span class="t-prompt">$</span> <span class="t-cmd">sudo</span> <span
@@ -115,7 +128,7 @@
                             <span class="code-dot green"></span>
                         </div>
                         <div class="code-line"><span class="code-keyword">bash</span> modules/<span
-                                class="code-fn">03_virtualbox.sh</span></div>
+                                class="code-fn">archivo.sh</span></div>
                     </div>
                 </div>
 
@@ -382,29 +395,26 @@
             <h2 class="section-title">Autor</h2>
             <div class="profile-card">
                 <div class="profile-img">
-                    <img src="https://github.com/Haplee.png" alt="Fran Vidal Mateo"
-                        style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+                    <div class="avatar-placeholder">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
                 </div>
                 <div class="profile-info">
-                    <h3>Fran Vidal Mateo</h3>
+                    <h3>Fran</h3>
                     <p class="profile-tag">
-                        <span class="tag-badge">🛡️ ASIR</span>
                         <span class="tag-badge">🐧 Linux</span>
+                        <span class="tag-badge">🐍 Python</span>
                         <span class="tag-badge">🔐 Seguridad</span>
                     </p>
-                    <p>Técnico Superior en ASIR. Especialista en automatización Linux, redes y seguridad. Desarrollador
-                        del ecosistema Haplee Setup. Este proyecto automatiza el despliegue de entornos de
-                        virtualización seguros.</p>
+                    <p>Desarrollador con foco en automatización de entornos Linux, scripting Bash y herramientas de red.
+                        Este proyecto nació de la necesidad de simplificar un proceso de configuración repetitivo.</p>
                     <div class="profile-links">
-
-                        <a href="https://www.instagram.com/franvidalmateo" target="_blank"
-                            class="btn btn-outline btn-sm">Instagram →</a>
-                        <!-- X -->
-                        <a href="https://x.com/FranVidalMateo" target="_blank" class="btn btn-outline btn-sm">X →</a>
-                        <!-- GitHub -->
-                        <a href="https://github.com/Haplee" target="_blank" class="btn btn-outline btn-sm">GitHub →</a>
-                        <!-- README -->
-                        <a href="../README.md" class="btn btn-outline btn-sm">README →</a>
+                        <a href="https://github.com" target="_blank" class="btn btn-outline btn-sm">GitHub →</a>
+                        <a href="docs/README.md" class="btn btn-outline btn-sm">README →</a>
                     </div>
                 </div>
             </div>
@@ -414,16 +424,37 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-brand">FranVi</div>
+            <div class="footer-brand">vbox<span class="accent-dot">.</span>setup</div>
             <p>Proyecto open source · Licencia MIT</p>
             <p class="footer-links">
                 <a href="#inicio">Inicio</a> ·
                 <a href="#instalacion">Instalación</a> ·
                 <a href="#modulos">Módulos</a> ·
-                <a href="https://github.com/Haplee/ubuntu-vbox-proxychains-setup" target="_blank">GitHub</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
             </p>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('navDrawer');
+
+        hamburger.addEventListener('click', () => {
+            const open = drawer.classList.toggle('open');
+            hamburger.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', open);
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeDrawer();
+        });
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    </script>
 
 </body>
 

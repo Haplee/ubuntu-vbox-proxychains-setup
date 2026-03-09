@@ -15,7 +15,7 @@
 - Diseño premium implementado con CSS vanilla (glassmorphism).
 - README.md actualizado con un diseño más profesional (badges, tablas, alertas).
 - README.md actualizado con un diseño profesional y funcional.
-- Implementación de un diseño web personalizado de alta calidad propuesto por el usuario.
-- Integración total de perfiles sociales (Instagram, X, GitHub) y foto de perfil real.
-- Personalización de branding final: `haplee.setup` en navegación y `FranVi` en el footer.
-- Estado actual: Proyecto 100% finalizado, documentado y con identidad visual propia.
+- Optimización completa "Mobile-first" de la web: implementación de menú hamburguesa y navegación adaptativa.
+- Refactorización de CSS para mejorar la experiencia en dispositivos táctiles.
+- Configuración final de branding: `haplee.setup` en cabecera y `vbox.setup` en pie de página.
+- Estado actual: Proyecto 100% finalizado, optimizado para móviles y listo para producción.
