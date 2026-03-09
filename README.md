@@ -6,9 +6,6 @@
 
 Script de automatización total para el despliegue y configuración de **VirtualBox** y **ProxyChains** en sistemas Ubuntu. Diseñado con un enfoque profesional para administradores de sistemas (ASIR).
 
-> [!TIP]
-> **[📺 Visitar Documentación Web Premium](https://haplee.github.io/ubuntu-vbox-proxychains-setup/)** para una guía detallada y arquitectura del proyecto.
-
 ---
 
 ## 🚀 Instalación Ultra-Rápida
